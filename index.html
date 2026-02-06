@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Consultant Feedback | Post‑Engagement Survey</title>
+  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Short post‑engagement survey for consultants." />
+</head>
+<body>
+  <header class="site-header">
+    <img src="logo.png" alt="Company Logo" class="logo" onerror="this.style.display='none'"/>
+    <h1>Post‑Engagement Survey</h1>
+    <p class="intro">This takes ~3 minutes. Your feedback helps us improve delivery quality and consultant support.</p>
+    <div id="progress"><div id="progress-bar"></div></div>
+  </header>
+
+  <main>
+    <!-- Use data-step for simple progress tracking -->
+    <form id="surveyForm" data-step="1">
+      <!-- Section A: Identity / anonymity -->
+      <section class="card" data-step="1" aria-labelledby="s1-title">
+        <h2 id="s1-title">About you</h2>
+        <label class="switch">
+          <input type="checkbox" id="anonymousToggle" checked />
+          <span class="slider"></span>
+          <span class="label">Submit anonymously</span>
+        </label>
+
+        <div class="two-col" id="identityFields" hidden>
+          <div>
+            <label for="name">Name (optional)</label>
+            <input type="text" id="name" name="name" autocomplete="name" />
+          </div>
+          <div>
+            <label for="email">Email (optional)</label>
+            <input type="email" id="email" name="email" autocomplete="email" />
+          </div>
+        </div>
+
+        <div>
+          <label for="client">Client (optional)</label>
+          <input type="text" id="client" name="client" placeholder="Client or engagement name" />
+        </div>
+
+        <div class="nav">
+          <button type="button" class="btn primary" id="next1">Next</button>
+        </div>
+      </section>
+
+      <!-- Section B: Experience -->
+      <section class="card" data-step="2" aria-labelledby="s2-title" hidden>
+        <h2 id="s2-title">Experience</h2>
+
+        <fieldset>
+          <legend>Onboarding & readiness</legend>
+          <div class="scale">
+            <label>Clarity of role and objectives</label>
+            <div class="options" data-name="clarity_role">
+              <input type="radio" name="clarity_role" value="1" required><span>1</span>
+              <input type="radio" name="clarity_role" value="2"><span>2</span>
+              <input type="radio" name="clarity_role" value="3"><span>3</span>
+              <input type="radio" name="clarity_role" value="4"><span>4</span>
+              <input type="radio" name="clarity_role" value="5"><span>5</span>
+            </div>
+          </div>
+
+          <div class="scale">
+            <label>Quality of handover / brief</label>
+            <div class="options" data-name="handover_quality">
+              <input type="radio" name="handover_quality" value="1" required><span>1</span>
+              <input type="radio" name="handover_quality" value="2"><span>2</span>
+              <input type="radio" name="handover_quality" value="3"><span>3</span>
+              <input type="radio" name="handover_quality" value="4"><span>4</span>
+              <input type="radio" name="handover_quality" value="5"><span>5</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Delivery & collaboration</legend>
+          <div class="scale">
+            <label>Access to tools, data, and stakeholders</label>
+            <div class="options" data-name="access_tools">
+              <input type="radio" name="access_tools" value="1" required><span>1</span>
+              <input type="radio" name="access_tools" value="2"><span>2</span>
+              <input type="radio" name="access_tools" value="3"><span>3</span>
+              <input type="radio" name="access_tools" value="4"><span>4</span>
+              <input type="radio" name="access_tools" value="5"><span>5</span>
+            </div>
+          </div>
+
+          <div class="scale">
+            <label>Communication with our team</label>
+            <div class="options" data-name="communication">
+              <input type="radio" name="communication" value="1" required><span>1</span>
+              <input type="radio" name="communication" value="2"><span>2</span>
+              <input type="radio" name="communication" value="3"><span>3</span>
+              <input type="radio" name="communication" value="4"><span>4</span>
+              <input type="radio" name="communication" value="5"><span>5</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="nav">
+          <button type="button" class="btn" id="back2">Back</button>
+          <button type="button" class="btn primary" id="next2">Next</button>
+        </div>
+      </section>
+
+      <!-- Section C: Outcome -->
+      <section class="card" data-step="3" aria-labelledby="s3-title" hidden>
+        <h2 id="s3-title">Outcome</h2>
+
+        <div class="scale">
+          <label>Did the engagement meet its objectives?</label>
+          <div class="yn">
+            <label><input type="radio" name="met_objectives" value="Yes" required> Yes</label>
+            <label><input type="radio" name="met_objectives" value="Partially"> Partially</label>
+            <label><input type="radio" name="met_objectives" value="No"> No</label>
+          </div>
+        </div>
+
+        <label for="biggest_impact">Where did you create the most impact?</label>
+        <textarea id="biggest_impact" name="biggest_impact" rows="3" placeholder="e.g., Stabilised supply chain planning, redesigned reporting cadence"></textarea>
+
+        <label for="improvements">What should we improve next time?</label>
+        <textarea id="improvements" name="improvements" rows="3" placeholder="Your suggestions help us sharpen delivery."></textarea>
+
+        <label for="nps">How likely are you to work with us again? (0–10)</label>
+        <input type="number" id="nps" name="nps" min="0" max="10" inputmode="numeric" />
+
+        <div class="nav">
+          <button type="button" class="btn" id="back3">Back</button>
+          <button type="submit" class="btn primary">Submit</button>
+        </div>
+      </section>
+
+      <!-- Thank you -->
+      <section class="card" data-step="4" aria-live="polite" hidden>
+        <h2>Thanks for your feedback</h2>
+        <p>We really appreciate you taking the time to improve the experience.</p>
+      </section>
+    </form>
+  </main>
+
+  <footer class="site-footer">
+    <small>© <span id="year"></span> Your Company. <a href="#" id="privacyLink">Privacy</a></small>
+  </footer>
+
+  <script>
+    // Replace with your Formspree endpoint (from Part A)
+    window.FORMSPREE_ENDPOINT = "https://formspree.io/f/yourFormIdHere";
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
